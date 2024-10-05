@@ -1,12 +1,12 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds\Tests;
+namespace Smarksmark\LaravelSmartAds\Tests;
 
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\View;
 use Livewire\LivewireServiceProvider;
-use _5balloons\LaravelSmartAds\LaravelSmartAdsFacade;
-use _5balloons\LaravelSmartAds\LaravelSmartAdsServiceProvider;
+use Smarksmark\LaravelSmartAds\LaravelSmartAdsFacade;
+use Smarksmark\LaravelSmartAds\LaravelSmartAdsServiceProvider;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithViews;
 
 class LaravelSmartAdsTestCase extends TestCase

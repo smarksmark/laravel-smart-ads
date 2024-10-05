@@ -1,8 +1,8 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds\Database\Factories;
+namespace Smarksmark\LaravelSmartAds\Database\Factories;
 
-use _5balloons\LaravelSmartAds\Models\SmartAd;
+use Smarksmark\LaravelSmartAds\Models\SmartAd;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SmartAdFactory extends Factory

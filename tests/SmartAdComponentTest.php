@@ -1,13 +1,13 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds\Tests;
+namespace Smarksmark\LaravelSmartAds\Tests;
 
 use Livewire\Livewire;
-use _5balloons\LaravelSmartAds\Models\SmartAd;
+use Smarksmark\LaravelSmartAds\Models\SmartAd;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use _5balloons\LaravelSmartAds\Http\Livewire\SmartAdComponent;
+use Smarksmark\LaravelSmartAds\Http\Livewire\SmartAdComponent;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithViews;
-use _5balloons\LaravelSmartAds\Tests\LaravelSmartAdsTestCase as TestCase;
+use Smarksmark\LaravelSmartAds\Tests\LaravelSmartAdsTestCase as TestCase;
 
 
 class SmartAdComponentTest extends TestCase

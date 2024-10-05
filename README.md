@@ -26,7 +26,7 @@ The package will automatically register itself.
 Publishing Migrations (Required)
 
 ```bash
-php artisan vendor:publish --provider="_5balloons\LaravelSmartAds\LaravelSmartAdsServiceProvider" --tag="smart-ads-migrations"
+php artisan vendor:publish --provider="Smarksmark\LaravelSmartAds\LaravelSmartAdsServiceProvider" --tag="smart-ads-migrations"
 ```
 
 and then run migrate command to run the migrations
@@ -38,14 +38,14 @@ php artisan migrate
 Publishing Assets (Required)
 
 ```bash
-php artisan vendor:publish --provider="_5balloons\LaravelSmartAds\LaravelSmartAdsServiceProvider" --tag="smart-ads-assets"
+php artisan vendor:publish --provider="Smarksmark\LaravelSmartAds\LaravelSmartAdsServiceProvider" --tag="smart-ads-assets"
 ```
 This command will copy the necessary css and js files required to run the ad manager dashboard. 
 
 Publishing Config File (Optional)
 
 ```bash
-php artisan vendor:publish --provider="_5balloons\LaravelSmartAds\LaravelSmartAdsServiceProvider" --tag="smart-ads-config"
+php artisan vendor:publish --provider="Smarksmark\LaravelSmartAds\LaravelSmartAdsServiceProvider" --tag="smart-ads-config"
 ```
 
 ## Usage

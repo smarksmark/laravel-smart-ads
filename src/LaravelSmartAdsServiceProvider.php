@@ -1,13 +1,13 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds;
+namespace Smarksmark\LaravelSmartAds;
 
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Route;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use _5balloons\LaravelSmartAds\Components\SmartAdComponent;
-use _5balloons\LaravelSmartAds\Http\Livewire\AdReportComponent;
+use Smarksmark\LaravelSmartAds\Components\SmartAdComponent;
+use Smarksmark\LaravelSmartAds\Http\Livewire\AdReportComponent;
 
 class LaravelSmartAdsServiceProvider extends PackageServiceProvider
 {

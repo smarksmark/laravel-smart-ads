@@ -1,10 +1,10 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds\Tests;
+namespace Smarksmark\LaravelSmartAds\Tests;
 
-use _5balloons\LaravelSmartAds\Models\SmartAd;
+use Smarksmark\LaravelSmartAds\Models\SmartAd;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use _5balloons\LaravelSmartAds\Tests\LaravelSmartAdsTestCase as TestCase;
+use Smarksmark\LaravelSmartAds\Tests\LaravelSmartAdsTestCase as TestCase;
 
 class LaravelSmartAdsTest extends TestCase
 {

@@ -26,13 +26,13 @@
     },
     "autoload": {
         "psr-4": {
-            "_5balloons\\LaravelSmartAds\\": "src",
-            "_5balloons\\LaravelSmartAds\\Database\\Factories\\": "database/factories"
+            "Smarksmark\\LaravelSmartAds\\": "src",
+            "Smarksmark\\LaravelSmartAds\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "_5balloons\\LaravelSmartAds\\Tests\\": "tests"
+            "Smarksmark\\LaravelSmartAds\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -46,10 +46,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "_5balloons\\LaravelSmartAds\\LaravelSmartAdsServiceProvider"
+                "Smarksmark\\LaravelSmartAds\\LaravelSmartAdsServiceProvider"
             ],
             "aliases": {
-                "LaravelSmartAds": "_5balloons\\LaravelSmartAds\\LaravelSmartAdsFacade"
+                "LaravelSmartAds": "Smarksmark\\LaravelSmartAds\\LaravelSmartAdsFacade"
             }
         }
     }

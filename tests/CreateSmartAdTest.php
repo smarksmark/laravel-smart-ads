@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
-use _5balloons\LaravelSmartAds\Models\SmartAd;
-use _5balloons\LaravelSmartAds\Tests\LaravelSmartAdsTestCase;
+use Smarksmark\LaravelSmartAds\Models\SmartAd;
+use Smarksmark\LaravelSmartAds\Tests\LaravelSmartAdsTestCase;
 
 class CreateSmartAdTest extends LaravelSmartAdsTestCase
 {

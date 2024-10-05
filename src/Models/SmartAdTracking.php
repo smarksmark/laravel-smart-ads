@@ -1,10 +1,10 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds\Models;
+namespace Smarksmark\LaravelSmartAds\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use _5balloons\LaravelSmartAds\Database\Factories\SmartAdTrackingFactory;
+use Smarksmark\LaravelSmartAds\Database\Factories\SmartAdTrackingFactory;
 
 
 class SmartAdTracking extends Model{

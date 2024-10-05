@@ -1,6 +1,6 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds\Http\Requests;
+namespace Smarksmark\LaravelSmartAds\Http\Requests;
 
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;

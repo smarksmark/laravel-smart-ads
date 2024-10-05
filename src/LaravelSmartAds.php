@@ -1,10 +1,10 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds;
+namespace Smarksmark\LaravelSmartAds;
 
 use Carbon\Carbon;
-use _5balloons\LaravelSmartAds\Models\SmartAd;
-use _5balloons\LaravelSmartAds\Models\SmartAdTracking;
+use Smarksmark\LaravelSmartAds\Models\SmartAd;
+use Smarksmark\LaravelSmartAds\Models\SmartAdTracking;
 
 class LaravelSmartAds
 {

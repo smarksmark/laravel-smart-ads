@@ -4,10 +4,10 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
-use _5balloons\LaravelSmartAds\Models\SmartAd;
+use Smarksmark\LaravelSmartAds\Models\SmartAd;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use _5balloons\LaravelSmartAds\Tests\LaravelSmartAdsTestCase;
-use _5balloons\LaravelAdManager\Database\Factories\LaravelAdFactory;
+use Smarksmark\LaravelSmartAds\Tests\LaravelSmartAdsTestCase;
+use Smarksmark\LaravelAdManager\Database\Factories\LaravelAdFactory;
 
 class SmartAdAdminTest extends LaravelSmartAdsTestCase
 {

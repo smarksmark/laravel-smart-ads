@@ -5,7 +5,7 @@
             Edit Ad
         </h2>
 
-        <form action="/smart-ad-manager/ads/update/{{$smartAd->id}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('smart-ads-update', $smartAd->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
         <div
@@ -128,70 +128,96 @@
                     </div>
                     <div :id="$id('accordion-item')" x-show="isAccordionOpen($id('accordion-item'))" x-cloack="" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="scale-y-0" x-transition:enter-end="scale-y-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="scale-y-100" x-transition:leave-end="scale-y-0" class="transition-transform ease-out overflow-hidden origin-top transform p-3">
 
-                      <div x-data="{
-                            placements: [
-                              @isset($smartAd->placements)
-                                @foreach(json_decode($smartAd->placements) as $placement)
+                        <div id="placementContainer">
+                            <!-- This is where dynamic placement forms will be added -->
+                        </div>
+
+                        <div class="text-sm mt-2 cursor-pointer" id="addPlacementBtn">Add More Placement</div>
+
+                        <input type="hidden" id="placementData" name="placements"/>
+
+                        <script>
+                            // JavaScript code to manage placements
+                            let placements = [
+                                    @isset($smartAd->placements)
+                                    @foreach(json_decode($smartAd->placements) as $placement)
                                 {
-                                  position: '{{$placement->position}}',
-                                  selector: '{{$placement->selector}}',
-                                  style: '{{isset($placement->style) ? $placement->style : ''}}'
-                                },
-                              @endforeach
-                              @else
-                                {
-                                  position: '',
-                                  selector: ''
-                                }
-                              @endisset
-                            ],
-                            addNewPlacement() {
-                                this.placements.push({
-                                    position: '',
-                                    selector: ''
+                                    position: '{{ $placement->position }}',
+                                    selector: '{{ $placement->selector }}',
+                                    style: '{{ isset($placement->style) ? $placement->style : '' }}'
+                                }@if (!$loop->last),@endif
+                                    @endforeach
+                                    @else
+                                { position: '', selector: '', style: '' }
+                                @endisset
+                            ];
+
+                            // Function to render the placement forms
+                            function renderPlacements() {
+                                const placementContainer = document.getElementById('placementContainer');
+                                placementContainer.innerHTML = ''; // Clear the container before re-rendering
+                                placements.forEach((placement, index) => {
+                                    const div = document.createElement('div');
+                                    div.classList.add('rounded', 'bg-gray-200', 'border', 'border-gray-400', 'p-2', 'my-3');
+                                    div.innerHTML = `
+                <div class="text-red-500 text-sm cursor-pointer" onclick="removePlacement(${index})">Remove</div>
+                <label class="block mt-2 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Ad Position ${index + 1}</span>
+                    <select class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select"
+                            onchange="updatePlacement(${index}, 'position', this.value)">
+                        <option value="" ${placement.position === '' ? 'selected' : ''}>None</option>
+                        <option value="beforebegin" ${placement.position === 'beforebegin' ? 'selected' : ''}>Before HTML Selector</option>
+                        <option value="afterend" ${placement.position === 'afterend' ? 'selected' : ''}>After HTML Selector</option>
+                        <option value="afterbegin" ${placement.position === 'afterbegin' ? 'selected' : ''}>Inside HTML Selector (At Beginning)</option>
+                        <option value="beforeend" ${placement.position === 'beforeend' ? 'selected' : ''}>Inside HTML Selector (At End)</option>
+                    </select>
+                </label>
+                <label class="block mt-4 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Selector ${index + 1}</span>
+                    <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 form-input"
+                           placeholder="CSS Selector like #id-name / .class-name / body > p"
+                           value="${placement.selector}"
+                           oninput="updatePlacement(${index}, 'selector', this.value)"/>
+                </label>
+                <label class="block mt-4 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Custom CSS Styles ${index + 1}</span>
+                    <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 form-input"
+                           placeholder="Custom Style like float:right; margin: 10px;"
+                           value="${placement.style}"
+                           oninput="updatePlacement(${index}, 'style', this.value)"/>
+                </label>
+            `;
+                                    placementContainer.appendChild(div);
                                 });
-                              },
-                              removePlacement(index) {
-                                this.placements.splice(index, 1);
-                              }
-                            }">
-                      
-                        <template x-for="(placement, index) in placements" :key="index">
-                          <div class="rounded bg-gray-200 border border-gray-400 p-2 my-3">
-                            <div class="text-red-500 text-sm cursor-pointer" @click="removePlacement(index)">Remove</div>
-                            <label class="block mt-2 text-sm">
-                              <span class="text-gray-700 dark:text-gray-400">Ad Position <span x-text="index+1"></span></span>
-                              <select x-model="placement.position"  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                                <option value="">None</option>
-                                <option value="beforebegin">Before HTML Selector</option>
-                                <option value="afterend">After HTML Selector</option>
-                                <option value="afterbegin">Inside HTML Selector (At Beginning)</option>
-                                <option value="beforeend">Inside HTML Selector (At End)</option>
-                              </select>
-                            </label>
+                                // Update the hidden input with JSON data
+                                document.getElementById('placementData').value = JSON.stringify(placements);
+                            }
 
-                            <label class="block mt-4 text-sm">
-                              <span class="text-gray-700 dark:text-gray-400">Selector <span x-text="index+1"></span></span>
-                              <input
-                                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                placeholder="CSS Selector like #id-name / .class-name / body > p"  x-model="placement.selector"
-                              />
-                            </label>
+                            // Function to update the placement data
+                            function updatePlacement(index, key, value) {
+                                placements[index][key] = value;
+                                document.getElementById('placementData').value = JSON.stringify(placements);
+                            }
 
-                            <label class="block mt-4 text-sm">
-                              <span class="text-gray-700 dark:text-gray-400">Custom CSS Style <span x-text="index+1"></span></span>
-                              <input
-                                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                placeholder="CSS Styles float:left; margin: 10px;"  x-model="placement.style"
-                              />
-                            </label>
-                          </div>
-                        </template>
-                        <div class="text-sm mt-2 cursor-pointer" @click="addNewPlacement()">Add More placement</div>
-                        <input type="hidden" :value="JSON.stringify(placements)" name="placements" />                        
-                      </div>
+                            // Function to add a new placement
+                            function addNewPlacement() {
+                                placements.push({ position: '', selector: '', style: '' });
+                                renderPlacements();
+                            }
 
-                      
+                            // Function to remove a placement
+                            function removePlacement(index) {
+                                placements.splice(index, 1);
+                                renderPlacements();
+                            }
+
+                            // Add initial placement rendering
+                            document.addEventListener('DOMContentLoaded', function() {
+                                renderPlacements();
+                                // Add click event for the "Add More Placement" button
+                                document.getElementById('addPlacementBtn').addEventListener('click', addNewPlacement);
+                            });
+                        </script>
                     </div>
                 </div>
               </div>

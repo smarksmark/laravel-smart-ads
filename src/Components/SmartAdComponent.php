@@ -1,9 +1,9 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds\Components;
+namespace Smarksmark\LaravelSmartAds\Components;
 
 use Illuminate\View\Component;
-use _5balloons\LaravelSmartAds\Models\SmartAd;
+use Smarksmark\LaravelSmartAds\Models\SmartAd;
 
 class SmartAdComponent extends Component
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds;
+namespace Smarksmark\LaravelSmartAds;
 
 use Illuminate\Support\Facades\Facade;
 

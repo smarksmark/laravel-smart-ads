@@ -1,13 +1,13 @@
 <?php
 
-namespace _5balloons\LaravelSmartAds\Http\Livewire;
+namespace Smarksmark\LaravelSmartAds\Http\Livewire;
 
 use Carbon\Carbon;
 use Livewire\Component;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\DB;
-use _5balloons\LaravelSmartAds\Models\SmartAd;
-use _5balloons\LaravelSmartAds\Models\SmartAdTracking;
+use Smarksmark\LaravelSmartAds\Models\SmartAd;
+use Smarksmark\LaravelSmartAds\Models\SmartAdTracking;
 
 class AdReportComponent extends Component
 {
