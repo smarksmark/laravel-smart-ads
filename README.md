@@ -18,7 +18,7 @@ Simple Ad, Banner, Callouts Manager for Laravel.
 You can install the package via composer:
 
 ```bash
-composer require 5balloons/laravel-smart-ads
+composer require smarksmark/laravel-smart-ads
 ```
 
 The package will automatically register itself.
