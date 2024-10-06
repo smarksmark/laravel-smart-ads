@@ -1,17 +1,16 @@
 {
-    "name": "5balloons/laravel-smart-ads",
+    "name": "smarksmark/laravel-smart-ads",
     "description": "Ad, Banners, Callouts Manager for Laravel",
     "keywords": [
-        "5balloons",
+        "smarksmark",
         "laravel-smart-ads"
     ],
-    "homepage": "https://github.com/5balloons/laravel-smart-ads",
+    "homepage": "https://github.com/smarksmark/laravel-smart-ads",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Tushar Gugnani",
-            "email": "tushar@5balloons.info",
+            "name": "Smark",
             "role": "Developer"
         }
     ],
