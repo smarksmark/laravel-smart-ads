@@ -127,7 +127,7 @@
                                     class="flex items-center justify-between p-3 w-full focus:border focus:border-blue-200"
                                     :class="isAccordionOpen($id('accordion-item')) &amp;&amp; 'bg-blue-100 text-blue-800'"
                                     @keydown.space.prevent.stop="toggle">
-                                <span class="font-semibold">Automatic Ad Insertion (Optional)</span>
+                                <span class="font-semibold">Cài đặt vị trí hiển thị</span>
                                 <span>
                             <svg class="rotate-0 h-6 w-6 transform"
                                  :class="isAccordionOpen($id('accordion-item')) && 'rotate-180'" x-transition=""
@@ -182,9 +182,9 @@
                 </label>
 
                 <label class="block mt-4 text-sm">
-                    <span class="text-gray-700 dark:text-gray-400">Selector ${index + 1}</span>
+                    <span class="text-gray-700 dark:text-gray-400">ID, Selector ${index + 1}</span>
                     <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 form-input"
-                           placeholder="CSS Selector like #id-name / .class-name / body > p"
+                           placeholder="ID, CSS Selector like #top-ads-1 | .class-name / body > p"
                            value="${placement.selector}"
                            oninput="updatePlacement(${index}, 'selector', this.value)"/>
                 </label>
@@ -248,6 +248,7 @@
             <input type="hidden" name="form_type" value="create"/>
         </form>
 
+        @include('smart-ads::smart-ad-manager.tut-setup-ads')
 
     </div>
 @endsection
