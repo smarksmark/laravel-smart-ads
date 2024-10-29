@@ -15,7 +15,7 @@ fetch('/smart-banner-auto-placements')
                 adBody = "<div class=\"smart-banner-temp\" banner-slug=\""+ad.slug+"\" style=\""+placement.style+"\">"+ad.body+"</div>"
               }else if(ad.adType == 'IMAGE'){
                 adBody = "<div class=\"smart-banner-temp\" banner-slug=\""+ad.slug+"\" style=\""+placement.style+"\">\
-                          <a href=\""+(ad.imageUrl ? ad.imageUrl : '#')+"\" target=\"_blank\">\
+                          <a href=\""+(ad.imageUrl ? ad.imageUrl : '#')+"\" target=\"_blank\" rel=\"nofollow\" >\
                             <img src=\"/storage/"+ad.image+"\" alt=\""+ad.imageAlt+"\" />\
                           </a>\
                          </div>"

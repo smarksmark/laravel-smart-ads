@@ -173,10 +173,9 @@
                     <span class="text-gray-700 dark:text-gray-400">Ad Position ${index + 1}</span>
                     <select class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select"
                             onchange="updatePlacement(${index}, 'position', this.value)">
-                        <option value="" ${placement.position === '' ? 'selected' : ''}>None</option>
+                        <option value="afterbegin" ${placement.position === '' ? 'selected' : ''}>Inside HTML Selector (At Beginning)</option>
                         <option value="beforebegin" ${placement.position === 'beforebegin' ? 'selected' : ''}>Before HTML Selector</option>
                         <option value="afterend" ${placement.position === 'afterend' ? 'selected' : ''}>After HTML Selector</option>
-                        <option value="afterbegin" ${placement.position === 'afterbegin' ? 'selected' : ''}>Inside HTML Selector (At Beginning)</option>
                         <option value="beforeend" ${placement.position === 'beforeend' ? 'selected' : ''}>Inside HTML Selector (At End)</option>
                     </select>
                 </label>
