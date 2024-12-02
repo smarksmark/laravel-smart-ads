@@ -14,8 +14,8 @@ fetch('/smart-banner-auto-placements')
                             if (ad.adType == 'HTML') {
                                 adBody = "<div class=\"smart-banner-temp\" banner-slug=\"" + ad.slug + "\" style=\"" + placement.style + "\">" + ad.body + "</div>"
                             } else if (ad.adType == 'IMAGE') {
-                                adBody = "<div class=\"smart-banner-temp\" banner-slug=\"" + ad.slug + "\" style=\"" + placement.style + "\">\
-                          <a href=\"" + (ad.imageUrl ? ad.imageUrl : '#') + "\" target=\"_blank\" rel=\"nofollow\" >\
+                                adBody = "<div  rel=\"nofollow\" class=\"smart-banner-temp\" banner-slug=\"" + ad.slug + "\" style=\"" + placement.style + "\">\
+                          <a href=\"" + (ad.imageUrl ? ad.imageUrl : '#') + "\" target=\"_blank\" >\
                             <img src=\"/storage/" + ad.image + "\" alt=\"" + ad.imageAlt + "\" />\
                           </a>\
                          </div>"
@@ -33,9 +33,10 @@ fetch('/smart-banner-auto-placements')
         smartAds.forEach(function (smartAd) {
             let adSlug = smartAd.getAttribute('banner-slug');
             let adStyles = smartAd.getAttribute('style');
+            let adRel = smartAd.getAttribute('rel');
             smartAd.firstElementChild.setAttribute("banner-slug", adSlug);
             smartAd.firstElementChild.setAttribute("style", adStyles);
-            smartAd.firstElementChild.setAttribute("rel", "nofollow");
+            smartAd.firstElementChild.setAttribute("rel", adRel);
             smartAd.firstElementChild.classList.add("smart-banner");
             smartAd.replaceWith(...smartAd.childNodes);
         });
